@@ -1,3 +1,16 @@
+/*
+#1a1c1d - Background
+#303436
+#6b6459
+#b3aca3
+#dbd8d3 - Text
+
+#b1d6f8 - Link Hover
+#273444 - Link Selected Background
+#192d47
+#0b3780
+*/
+
 * {
 	font-family: 'Roboto', serif;
 	font-size: 16px;
@@ -11,8 +24,71 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 .title {
+	position: sticky;
+	background-color: transparent;
 	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 48px;
 	font-weight: 900;
 	font-style: black;
+	text-align: center;
+	z-index: 1;
+}
+
+.title-description {
+	position: sticky;
+	background-color: transparent;
+	font-family: 'Playfair Display', sans-serif;
+	font-size: 20px;
+	font-style: normal;
+	text-align: center;
+	z-index: 1;
+}
+
+#background-video {
+	position: relative;
+	right: 0;
+	bottom: 0;
+	overflow: hidden;
+	min-width: 100%;
+	min-height: 100%;
+	margin-top: -12%;
+	margin-bottom: -12%;
+	z-index: 0;
+}
+
+.menubar-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    overflow: hidden;
+	margin: 10px;
+	padding: 10px;
+}
+
+.menubar-button {
+	float: left;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.4s;
+    margin: 4px 2px;
+    margin-bottom: 16px;
+	background-color: #1a1c1d50;
+	position: sticky;
+	border-style: solid;
+	color: #b3aca3;
+	border-color: #30343695;
+	border-width: 3px;
+	border-radius: 5px;
+	box-shadow: 1px 1px 10px 1px #1a1c1d70, 1px 1px 10px 1px #1a1c1d70 inset;
+	text-shadow: 1px 1px 10px #1a1c1d70;
+	text-align: center;
+	font-weight: 900;
+	z-index: 1;
+}
+
+.menubar-button:hover {
+	color: #dbd8d3;
+	border-color: #6b6459;
+	box-shadow: 1px 1px 10px 1px #4a453870, 1px 1px 10px 1px #4a453870 inset;
+	text-shadow: 1px 1px 10px #4a453870;
 }
