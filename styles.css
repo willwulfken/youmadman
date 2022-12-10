@@ -17,6 +17,7 @@
 	font-weight: normal;
 	background-color: #1a1c1d;
 	color: #dbd8d3;
+	z-index: 1;
 }
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap');
@@ -31,7 +32,6 @@
 	font-weight: 900;
 	font-style: black;
 	text-align: center;
-	z-index: 1;
 }
 
 .title-description {
@@ -41,11 +41,10 @@
 	font-size: 20px;
 	font-style: normal;
 	text-align: center;
-	z-index: 1;
 }
 
 #background-video {
-	position: relative;
+	position: fixed;
 	right: 0;
 	bottom: 0;
 	overflow: hidden;
@@ -66,6 +65,7 @@
 }
 
 .menubar-button {
+	position: sticky;
 	float: left;
     cursor: pointer;
     padding: 14px 16px;
@@ -73,7 +73,6 @@
     margin: 4px 2px;
     margin-bottom: 16px;
 	background-color: #1a1c1d50;
-	position: sticky;
 	border-style: solid;
 	color: #b3aca3;
 	border-color: #30343695;
@@ -83,7 +82,6 @@
 	text-shadow: 1px 1px 10px #1a1c1d70;
 	text-align: center;
 	font-weight: 900;
-	z-index: 1;
 }
 
 .menubar-button:hover {
@@ -91,4 +89,15 @@
 	border-color: #6b6459;
 	box-shadow: 1px 1px 10px 1px #4a453870, 1px 1px 10px 1px #4a453870 inset;
 	text-shadow: 1px 1px 10px #4a453870;
+}
+
+.body-spacer {
+	margin-bottom: 70vh;
+}
+
+.footer-content {
+	position: sticky;
+	background-color: transparent;
+	font-size: 12px;
+	text-align: center;
 }
