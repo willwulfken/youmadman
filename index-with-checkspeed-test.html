@@ -38,10 +38,92 @@
 		</div>
 	</div>
 
-	<video autoplay muted loop id="background-video">
-		<source src="https://websites.godaddy.com/categories/v4/videos/raw/video/uA41GmyyG8IMaxXdb.mp4" type="video/mp4">
-	</video>
+	<span id="background-video-container">
+
+	</span>
 
 	<!--<div class="body-spacer"> </div>-->
 	<div class="footer-content">Copyright © 2022 Will Wulfken - All Rights Reserved.</div>
 </body>
+<script>
+	//JUST AN EXAMPLE, PLEASE USE YOUR OWN PICTURE!
+var imageAddr = "https://raw.githubusercontent.com/willwulfken/youmadman/gh-pages/Images/MJSR.png"; 
+var downloadSize = 1547423; //bytes
+
+function ShowProgressMessage(msg) {
+    if (console) {
+        if (typeof msg == "string") {
+            console.log(msg);
+        } else {
+            for (var i = 0; i < msg.length; i++) {
+                console.log(msg[i]);
+            }
+        }
+    }
+    
+    var oProgress = document.getElementById("progress");
+    if (oProgress) {
+        var actualHTML = (typeof msg == "string") ? msg : msg.join("<br />");
+        oProgress.innerHTML = actualHTML;
+    }
+}
+
+function InitiateSpeedDetection() {
+    ShowProgressMessage("[Speed Test] - Loading the image, please wait...");
+    window.setTimeout(MeasureConnectionSpeed, 1);
+};    
+
+if (window.addEventListener) {
+    window.addEventListener('load', InitiateSpeedDetection, false);
+} else if (window.attachEvent) {
+    window.attachEvent('onload', InitiateSpeedDetection);
+}
+
+function MeasureConnectionSpeed() {
+    var startTime, endTime;
+    var download = new Image();
+    download.onload = function () {
+        endTime = (new Date()).getTime();
+        showResults();
+    }
+    
+    download.onerror = function (err, msg) {
+        ShowProgressMessage("[Speed Test] - Invalid image, or error downloading");
+    }
+    
+    startTime = (new Date()).getTime();
+    var cacheBuster = "?nnn=" + startTime;
+    download.src = imageAddr + cacheBuster;
+    
+    function showResults() {
+		ShowProgressMessage("[Speed Test] - Test Finished");
+
+        var duration = (endTime - startTime) / 1000;
+        var bitsLoaded = downloadSize * 8;
+        var speedBps = (bitsLoaded / duration).toFixed(2);
+        var speedKbps = (speedBps / 1024).toFixed(2);
+		var speedMbps = (speedKbps / 1024).toFixed(2);
+		
+		ShowProgressMessage("[Speed Test] -  Results: " + speedMbps + " Mbps");
+
+		if(speedMbps > 5){
+			var videoElement = document.getElementById("background-video-container").appendChild(document.createElement("video"));
+			videoElement.src = "https://websites.godaddy.com/categories/v4/videos/raw/video/uA41GmyyG8IMaxXdb.mp4";
+			videoElement.autoplay = true;
+			videoElement.muted = true;
+			videoElement.loop = true;
+			videoElement.id = "background-video";
+			videoElement.load();
+			videoElement.play();
+		} else {
+			var imgElement = document.getElementById("background-video-container").appendChild(document.createElement("img"));
+			imgElement.id = "background-video";
+			imgElement.src = "https://raw.githubusercontent.com/willwulfken/youmadman/gh-pages/Images/background-img.png";
+		}
+    }
+}
+</script>
+
+<!--<video autoplay muted loop id="background-video">
+	<source src="https://websites.godaddy.com/categories/v4/videos/raw/video/uA41GmyyG8IMaxXdb.mp4" type="video/mp4">
+</video>-->
